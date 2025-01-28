@@ -41,7 +41,7 @@ O **Scalar.NET** é utilizado neste projeto como ferramenta de documentação e 
 1. Após iniciar a aplicação (veja a seção [Como Executar o Projeto](#como-executar-o-projeto)):
    - A interface do Scalar.NET estará disponível em:
      ```plaintext
-     http://localhost:5000/docs
+     http://localhost:7049/Scalar
      ```
      (ou a porta configurada no ambiente).
 
