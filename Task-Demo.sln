@@ -4,8 +4,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Ports", "1-Ports", "{0725
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.Api", "Task.Api\Task.Api.csproj", "{0218F21F-A2E3-4DB8-9EB1-449FB4DE2AE4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EB0AF5F-EF5E-4808-AAFF-51FEF4197231}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Commom", "4-Commom", "{8F6E7C7E-74CC-48D1-9B18-EA29551048DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task.CrossCutting", "Task.CrossCutting\Task.CrossCutting.csproj", "{A478BA8A-BA44-4FDA-BD0D-E41CEA050FAB}"

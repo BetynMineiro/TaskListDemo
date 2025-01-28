@@ -12,7 +12,7 @@ public static class CrossCuttingModule
 {
     public static AppSettingsConfig GetAppSettingsApiConfig(this IConfiguration configuration)
     {
-        var settingsSection = configuration.GetSection("DNTL");
+        var settingsSection = configuration.GetSection("TASK");
         var settingsApi = settingsSection.Get<AppSettingsConfig>();
         return settingsApi;
     }

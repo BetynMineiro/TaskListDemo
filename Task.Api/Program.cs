@@ -39,7 +39,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference(options =>
     {
-        options.WithTitle("Task API Reference").WithTheme(ScalarTheme.Mars);
+        options.WithTitle("Task API Reference").WithTheme(ScalarTheme.Mars).WithSidebar(true).WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
     });
 }
 
