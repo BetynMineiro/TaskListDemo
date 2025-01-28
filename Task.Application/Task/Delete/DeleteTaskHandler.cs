@@ -14,24 +14,31 @@ public class DeleteTaskHandler(
 {
     public async Task<DeleteTaskOutput> Handle(DeleteTaskInput request, CancellationToken cancellationToken)
     {
-        logger.Information("DeleteTaskHandler - Start processing task deletion with ID: {TaskId}", request.Id);
+        logger.Information("DeleteTaskHandler - Start deleting Task with ID: {TaskId}", request.Id);
 
         try
         {
-            var deleted = await taskRepository.RemoveAsync(request.Id, cancellationToken);
-            if (string.IsNullOrWhiteSpace(deleted))
+            if (string.IsNullOrWhiteSpace(request.Id))
             {
-                logger.Warning("DeleteTaskHandler - Task deletion failed. Task ID: {TaskId}", request.Id);
+                logger.Warning("DeleteTaskHandler - Failed to delete Task with ID: {TaskId}", request.Id);
                 notificationServiceContext.AddNotification($"Delete Task {request.Id} failed");
                 return default;
             }
 
-            logger.Information("DeleteTaskHandler - Task successfully deleted. Task ID: {TaskId}", request.Id);
+            var deleted = await taskRepository.RemoveAsync(request.Id, cancellationToken);
+            if (string.IsNullOrWhiteSpace(deleted))
+            {
+                logger.Warning("DeleteTaskHandler - Failed to delete Task with ID: {TaskId} not found", request.Id);
+                notificationServiceContext.AddNotification($"Delete Task {request.Id} not found");
+                return default;
+            }
+
+            logger.Information("DeleteTaskHandler - Successfully deleted Task with ID: {TaskId}", request.Id);
             return new DeleteTaskOutput();
         }
         catch (Exception ex)
         {
-            logger.Error(ex, "DeleteTaskHandler - An exception occurred during task deletion. Task ID: {TaskId}, Error: {ErrorMessage}", request.Id, ex.Message);
+            logger.Error(ex, "DeleteTaskHandler - Exception occurred while deleting Task with ID: {TaskId}. Error: {ErrorMessage}", request.Id, ex.Message);
             return default;
         }
     }
