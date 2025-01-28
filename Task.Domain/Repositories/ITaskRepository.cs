@@ -15,5 +15,5 @@ public interface ITaskRepository:
     Task<string> AddAsync(Task.Domain.Entities.Task task, CancellationToken cancellationToken);
     Task<string> RemoveAsync(string id, CancellationToken cancellationToken);
     Task<string> UpdateAsync(string id, Task.Domain.Entities.Task task, CancellationToken cancellationToken);
-    Task<Task.Domain.Entities.Task?> GetByFilterAsync(string filter,  CancellationToken cancellationToken);
+
 }

@@ -16,6 +16,7 @@
       <ProjectReference Include="..\Task.Application\Task.Application.csproj" />
       <ProjectReference Include="..\Task.CrossCutting\Task.CrossCutting.csproj" />
       <ProjectReference Include="..\Task.Domain\Task.Domain.csproj" />
+      <ProjectReference Include="..\Task.MongoDbAdpter\Task.MongoDbAdpter.csproj" />
     </ItemGroup>
 
 </Project>

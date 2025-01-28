@@ -7,6 +7,7 @@ using Task.CrossCutting;
 using Task.CrossCutting.Bus;
 using Task.CrossCutting.Configurations;
 using Task.Domain;
+using Task.MongoDbAdpter;
 
 namespace Task.Api;
 
@@ -14,7 +15,7 @@ public static class ApiModule
 {
     public static void ConfigureFilters(this MvcOptions options)
     {
-   //     options.Filters.Add<NotificationServiceMiddleware>();
+        options.Filters.Add<NotificationServiceMiddleware>();
         options.Filters.Add<AcceptHeaderMiddleware>();
         options.Filters.Add(new ProducesAttribute("application/json"));
     }
@@ -29,7 +30,7 @@ public static class ApiModule
         var assemblyCollection = new List<Assembly>
         {
             typeof(ApplicationModule).Assembly,
-       //     typeof(MongoDbAdapterModule).Assembly,
+            typeof(MongoDbAdapterModule).Assembly,
         };
         services.ConfigureMessageHandler(assemblyCollection);
     }
@@ -40,7 +41,7 @@ public static class ApiModule
         services.ConfigureAppSettingsApi(configuration);
 
         //MongoDB Service
-   //     services.ConfigureMongoAdapterLayer(configuration);
+        services.ConfigureMongoAdapterLayer(configuration);
         
         services.ConfigureDomainLayer();
         services.ConfigureApplicationLayer();

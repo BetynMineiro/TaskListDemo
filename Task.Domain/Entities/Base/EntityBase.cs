@@ -4,22 +4,17 @@ namespace Task.Domain.Entities.Base;
 
 public abstract class EntityBase
 {
-
-    public string CreatedBy { get;  set; } = string.Empty;
     public DateTimeOffset CreatedAt { get;  set; }
-    public string UpdatedBy { get;  set; }= string.Empty;
     public DateTimeOffset? UpdatedAt { get;  set; }
     public Status Status { get; set; } = Status.Active;
 
-    public void SetCreationInfo(string createdBy)
+    public void SetCreationInfo()
     {
         CreatedAt = DateTimeOffset.UtcNow;
-        CreatedBy = createdBy;
     }
 
-    public void SetUpdateInfo(string updatedBy)
+    public void SetUpdateInfo()
     {
         UpdatedAt = DateTimeOffset.UtcNow;
-        UpdatedBy = updatedBy;
     }
 }
